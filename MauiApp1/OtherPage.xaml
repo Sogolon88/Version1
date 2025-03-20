@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.OtherPage"
+             Title=""
+             BackgroundColor="White">
+
+    <VerticalStackLayout VerticalOptions="Start">
+        <Border Margin="10,0,10,0" BackgroundColor="AliceBlue" StrokeShape="RoundRectangle 20" StrokeThickness="3">
+            <Border.Stroke>
+                <LinearGradientBrush>
+                    <GradientStop Color="Black"/>
+                </LinearGradientBrush>
+            </Border.Stroke>
+            <VerticalStackLayout>
+                <Label Text="WELCOME TO APP"
+				           FontSize="20"
+                           VerticalOptions="Start"
+                           Margin="15,10,0,0"
+				           TextColor="DarkRed"/>
+                <Image Source="oip.jpg"  
+                       HorizontalOptions="Center"
+                       HeightRequest="50"
+                       WidthRequest="250"
+                       Margin="30"
+				       Aspect="AspectFit"/>
+                
+                <HorizontalStackLayout Spacing="40">
+                    <StackLayout Margin="30,0,0,0">
+                        <Label Text="DEPENSES"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="Red"           
+                               />
+                        <Entry Text="-2800"
+                               FontSize ="18"
+                               IsReadOnly="True"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               x:Name="AfficheDepense"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Entry IsEnabled="False"
+                               Text="180000"
+                               x:Name="AfficheSolde"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center"
+                               TextColor="Black"
+                               FontSize="25"
+                               FontAttributes="Bold"/>
+                        <Image Source="barre.jpg"
+                               WidthRequest="100"
+                               HeightRequest="50"/>
+                    </StackLayout>
+                    <StackLayout Margin="0,0,5,0">
+                        <Label Text="REVENU"
+                               FontSize="18"
+                               FontAttributes="Bold"
+                               TextColor="DarkOliveGreen"           
+                               />
+                        <Entry Text="18800"
+                               FontSize ="18"
+                               IsReadOnly="True"
+                               TextColor="Black"
+                               FontAttributes="Bold"
+                               x:Name="AfficheRevenu"/>
+                    </StackLayout>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Border>
+        
+        <VerticalStackLayout HorizontalOptions="Start" Spacing="5">
+            <Label Text="ACTIVITES"
+                       Margin="30"
+				       FontSize="Large"/>
+            <Border   StrokeShape="RoundRectangle 20" BackgroundColor="AliceBlue" StrokeThickness="2">
+                <Border.Stroke>
+                    <LinearGradientBrush>
+                        <GradientStop Color="Black"/>
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <HorizontalStackLayout HorizontalOptions="Start">
+                    <Image Source="trans.jpg"  
+                           Aspect="AspectFit"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           Margin="10,0,0,0"
+                           HorizontalOptions="Start"/>
+                    <StackLayout Margin="10,15,10,15">
+                        <Button Text="TRANSACTIONS"
+                               FontSize="Large"
+                               BackgroundColor="AliceBlue"
+                               TextColor="Black"
+                               Clicked="GoToTransactionPage"
+                               FontAttributes="Bold"/>
+                        </StackLayout>
+                    <Image Source="dir.png" Aspect="AspectFit" 
+                            HeightRequest="30"
+                            WidthRequest="50"
+                            Margin="50,0,0,0"
+                            HorizontalOptions="End"/>
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border StrokeShape="RoundRectangle 20" BackgroundColor="AliceBlue">
+                <Border.Stroke>
+                    <LinearGradientBrush>
+                        <GradientStop Color="Black"/>
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <HorizontalStackLayout HorizontalOptions="Start" Margin="5">
+                    <Image Source="epag.jpg"  
+                           Aspect="AspectFit"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           Margin="10,0,0,0"
+                           HorizontalOptions="Start"/>
+                    <StackLayout Margin="10,15,10,15" >
+                        <Button Text="AJOUTER UN OBJECTIF"
+                           FontSize="20"
+                           BackgroundColor="AliceBlue"
+                           TextColor="Black"
+                           FontAttributes="Bold"/>
+                    </StackLayout>
+                    <Image Source="dir.png" Aspect="AspectFit" 
+                           HeightRequest="30"
+                           HorizontalOptions="End"
+                           Margin="5,0,0,0"
+                           WidthRequest="50"/>
+                </HorizontalStackLayout>
+            </Border>
+
+            <Border StrokeThickness="2" BackgroundColor="AliceBlue" StrokeShape="RoundRectangle 20">
+                <Border.Stroke>
+                    <LinearGradientBrush>
+                        <GradientStop Color="Black"/>
+                    </LinearGradientBrush>
+                </Border.Stroke>
+                <HorizontalStackLayout HorizontalOptions="Start">
+                    <Image Source="dash.jpg"
+                           Aspect="AspectFit"
+                           HeightRequest="50"
+                           WidthRequest="50"
+                           Margin="10,0,0,0"
+                           HorizontalOptions="Start"/>
+                    <StackLayout Margin="10,15,10,15">
+                        <Button Text="DASHBOARD"
+                           FontSize="Large"
+                           TextColor="Black"
+                           FontAttributes="Bold"
+                           BackgroundColor="AliceBlue"/>
+                    </StackLayout>
+                    <Image Source="dir.png" Aspect="AspectFit" 
+                           HeightRequest="30"
+                           HorizontalOptions="End"
+                           Margin="90,0,0,0"
+                           WidthRequest="50"/>
+            </HorizontalStackLayout>
+            </Border>
+            <!--HorizontalStackLayout HorizontalOptions="Start" Margin="10,0,0,0">
+                <Image Source="epag.jpg"  
+                    Aspect="AspectFit"
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    HorizontalOptions="Start"/>
+                <StackLayout Margin="10,15,10,15" BackgroundColor="Beige">
+                    <Label Text="AJOUTER UN OBJECTIF"
+                    FontSize="Large"
+                    TextColor="Black"
+                    FontAttributes="Bold"/>
+                </StackLayout>
+
+                <Image Source="dir.png" Aspect="AspectFit" 
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    HorizontalOptions="End"
+                    />
+                </HorizontalStackLayout-->
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

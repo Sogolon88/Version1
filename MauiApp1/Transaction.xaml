@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MauiApp1.ModelApp"
+             xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             x:Class="MauiApp1.Transaction"
+             Title="Transaction"
+             >
+    <VerticalStackLayout>
+        <Border StrokeShape="RoundRectangle 5" BackgroundColor="White">
+            <Border.Stroke>
+                <LinearGradientBrush>
+                    <GradientStop Color="Black"/>
+                </LinearGradientBrush>
+            </Border.Stroke>
+            <HorizontalStackLayout>
+                <!--Grid>
+                    <chart:SfCircularChart>
+                        <chart:SfCircularChart.Series>
+                            <chart:PieSeries ItemsSource="{Binding Data}"
+                                             YBindingPath="CategoryName"
+                                             XBindingPath="ValueCategory"
+                                             DataLabelSettings="{chart:CircularDataLabelSettings LabelPlacement=Inner}">
+                            </chart:PieSeries>
+                        </chart:SfCircularChart.Series>
+                    </chart:SfCircularChart>
+                </Grid-->
+                <Image Source="oip.jpg" WidthRequest="250" HeightRequest="200"
+                       VerticalOptions="Center" HorizontalOptions="Center"/>
+                <ImageButton Source="icon_add.png" HorizontalOptions="End" VerticalOptions="End"
+                       Margin="0,0,0,20"
+                       x:Name="ButtonAdd"
+                       Clicked="OnClickedAddButton"
+                       WidthRequest="90"
+                       HeightRequest="30"/>
+            </HorizontalStackLayout>
+        </Border>
+        <ScrollView Orientation="Vertical" x:Name="SrcoleListe">
+            <VerticalStackLayout Spacing="0" x:Name="TnsctnContener">
+            <controls:ActionModele Title="Epargne" 
+                                   ImageIcon="epag.jpg"
+                                   Description="creer un epargne pour acheter une veste"
+                                   Somme="+0"/>
+            <controls:ActionModele Title="Epargne" 
+                                   ImageIcon="epag.jpg"
+                                   Description="creer un epargne pour acheter une veste"
+                                   Somme="+0"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

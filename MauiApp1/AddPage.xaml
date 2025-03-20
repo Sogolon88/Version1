@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.AddPage"
+             Shell.BackgroundColor="Azure"
+             Title="Ajouter une transaction">
+    <VerticalStackLayout Spacing="30">
+        <Border>
+            <HorizontalStackLayout RadioButtonGroup.GroupName="choix" BackgroundColor="Azure" Spacing="30">
+                <RadioButton x:Name="RBrevenu" Content="Revenu" Value="choix1" FontAttributes="Bold" FontSize="24" HorizontalOptions="Start" IsChecked="True"/>
+                <RadioButton x:Name="RBdepense"  Content="Depense" Value="choix2" FontAttributes="Bold" FontSize="24" HorizontalOptions="End"/>
+            </HorizontalStackLayout>
+        </Border>
+        
+        <Border>
+            <VerticalStackLayout Spacing="5" Padding="10">
+                <Label Text="Category" TextColor="Black" FontSize="22" FontAttributes="Bold" HorizontalOptions="Start"/>
+                <Border Stroke="Black" StrokeShape="RoundRectangle 5" StrokeThickness="2" Padding="5">
+                    <HorizontalStackLayout>
+                    <Entry Placeholder="Salary" x:Name="CategoryLabel" TextColor="Black" WidthRequest="300"/>
+                    <ImageButton x:Name="CategoryChsButton" Aspect="AspectFit" Source="arrow_drop_down.png"   
+                                 Clicked="OnClickedCategoryAddButton"
+                                 HorizontalOptions="End"
+                                 WidthRequest="30" HeightRequest="24"/>
+                    </HorizontalStackLayout>
+                </Border>
+
+                <Label Text="Description" TextColor="Black" FontSize="18" FontAttributes="Bold" HorizontalOptions="Start"
+                       Margin="0,20,0,0"/>
+                <Border Stroke="Black" StrokeShape="RoundRectangle 5" StrokeThickness="2" Padding="5">
+                    <Entry Placeholder="Description" FontSize="15" x:Name="DescLabel" Keyboard="Text" TextColor="Black"/>
+                </Border>
+
+                <Label Text="Budget" TextColor="Black" FontSize="18" FontAttributes="Bold" HorizontalOptions="Start"
+                       Margin="0,20,0,0"/>
+                <Border Stroke="Black" StrokeShape="RoundRectangle 5" StrokeThickness="2" Padding="5">
+                    <Entry Placeholder="Budget" FontSize="15" x:Name="SoldeLabel" Keyboard="Numeric" TextColor="Black"/>
+                </Border>
+                
+                <Label Text="Date" TextColor="Black" FontSize="18" FontAttributes="Bold" HorizontalOptions="Start"
+                       Margin="0,20,0,0"/>
+                <Border Stroke="Black" StrokeShape="RoundRectangle 5" StrokeThickness="2" Padding="5">
+                    <HorizontalStackLayout>
+                        <DatePicker x:Name="DateSetter" FontSize="15" TextColor="Black" Format="dd-MM-yyyy" />
+                        <Image 
+                            Margin="230,0,0,0"
+                            Aspect="AspectFit"
+                            HorizontalOptions="End" 
+                            Source="calendar_month.png"
+                            WidthRequest="30" HeightRequest="24"/>
+                    </HorizontalStackLayout>
+                </Border>
+            </VerticalStackLayout>
+        </Border>
+        
+        <Border StrokeThickness="5" Stroke="Black" StrokeShape="RoundRectangle 10" Margin="0,30,0,0">
+            <Button Text="AJOUTER"
+                    CornerRadius="5"
+                    FontSize="24"
+                    x:Name="AddButton"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    Clicked="OnClickAddButton"
+                    BackgroundColor="Azure"
+            />
+
+        </Border>
+    </VerticalStackLayout>
+</ContentPage>
