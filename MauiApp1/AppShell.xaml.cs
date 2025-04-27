@@ -1,10 +1,11 @@
-﻿namespace MauiApp1
+﻿namespace FinanceApp
 {
     public partial class AppShell : Shell
     {
         public AppShell()
         {
             InitializeComponent();
+            //LoadUserName("USERNAME");
         }
     }
 }

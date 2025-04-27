@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace MauiApp1
+namespace FinanceApp.Models
 {
     public static class PhoneWordsTranslator
     {

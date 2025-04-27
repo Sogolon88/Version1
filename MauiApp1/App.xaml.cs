@@ -1,5 +1,5 @@
 ﻿
-namespace MauiApp1
+namespace FinanceApp
 {
     public partial class App : Application
     {
@@ -8,11 +8,15 @@ namespace MauiApp1
             InitializeComponent();
         }
 
-
-
         protected override Window CreateWindow(IActivationState? activationState)
         {
             return new Window(new AppShell());
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            Preferences.Set("RememberMe", false);
         }
     }
 }

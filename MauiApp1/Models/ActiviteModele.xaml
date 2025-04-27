@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Models.ActiviteModele">
+    <Border StrokeShape="RoundRectangle 4" Padding="15" BackgroundColor="White">
+        <VerticalStackLayout Spacing="5" VerticalOptions="Center" HorizontalOptions="Center">
+            <ImageButton x:Name="ImageIcon" WidthRequest="40" HeightRequest="40" Aspect="AspectFit" HorizontalOptions="Center" />
+            <Label x:Name="TitleLabel" FontSize="16" TextColor="#333333" HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </Border>
+</ContentView>

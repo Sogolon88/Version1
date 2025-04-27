@@ -1,8 +1,12 @@
-﻿using Microsoft.Extensions.Logging;
-using Syncfusion.Licensing;
-using Syncfusion.Maui.Core.Hosting;
+﻿using FinanceApp.Models;
+using FinanceApp.Services;
+using MauiApp1.Models;
+using MauiApp1.ViewModels;
+using MauiApp1.Views;
+using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
-namespace MauiApp1;
+namespace FinanceApp;
 
 public static class MauiProgram
 {
@@ -11,14 +15,24 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
-            .ConfigureSyncfusionCore()
+            .UseSkiaSharp()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("MaterialIcons.ttf", "MaterialIcons");
             });
-             SyncfusionLicenseProvider.RegisterLicense("703466");
+
+        builder.Services.AddSingleton<AppDatabase>();
+        builder.Services.AddSingleton<EmailService>();
+        builder.Services.AddSingleton<RegisterViewModel>();
+        builder.Services.AddSingleton<RegisterViewPage>();
+        builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<Users>();
+        builder.Services.AddSingleton<ForgotPasswordViewModel>();
+        builder.Services.AddSingleton<ForgotPasswordViewPage>();
+        builder.Services.AddSingleton<LoginViewModel>();
+        builder.Services.AddSingleton<LoginViewPage>();
 
 #if DEBUG
         builder.Logging.AddDebug();

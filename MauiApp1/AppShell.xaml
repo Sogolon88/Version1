@@ -1,20 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="MauiApp1.AppShell"
+    x:Class="FinanceApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:MauiApp1"
+    xmlns:views="clr-namespace:MauiApp1.Views"
+    xmlns:viewModels="clr-namespace:MauiApp1.ViewModels"
+    xmlns:Models="clr-namespace:MauiApp1.Models"
+    xmlns:local="clr-namespace:FinanceApp"
     Shell.FlyoutBehavior="Flyout"
-    Shell.BackgroundColor="White"
-    Shell.DisabledColor="Azure"
-    Title="MauiApp1">
+    Shell.BackgroundColor="#F0F8FF"
+    >
+
+    <TabBar Route="Maintabs">
+        <ShellContent Title="profils"
+                      Icon="profil_icon.png"
+                      ContentTemplate="{DataTemplate local:MainPage}" 
+                      />
+        <ShellContent Title="Home"
+                      Icon="home.png"
+                      ContentTemplate="{DataTemplate local:MainPage}" 
+                      />
+        <ShellContent Icon="add.png"
+                      ContentTemplate="{DataTemplate local:AddPage}" 
+                      />
+        <ShellContent Title="notification"
+                      Icon="notifif_icon.png"
+                      ContentTemplate="{DataTemplate local:MainPage}" 
+                      />
+    </TabBar>
+
+    <ShellContent Title="Paramettre"
+                      Icon="settings.png"
+                      ContentTemplate="{DataTemplate views:SettingViewPage}" 
+                      />
 
     <ShellContent
-            Title="Home"
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage" />
-    <ShellContent Title="Settings" 
-                          Icon="settings_icon.png" 
-                          ContentTemplate="{DataTemplate local:OtherPage}"
-                          Route="OtherPage"/>
+        Title="Login Page"
+        ContentTemplate="{DataTemplate views:LoginViewPage}"
+        FlyoutItemIsVisible="False"
+        Route="LoginViewPage" 
+    />
+
+    <ShellContent
+        Title="Register Page"
+        ContentTemplate="{DataTemplate views:RegisterViewPage}"
+        FlyoutItemIsVisible="False"
+        Route="RegisterViewPage" 
+    />
+
+    <ShellContent
+        Title="Forgot Password Page"
+        ContentTemplate="{DataTemplate views:ForgotPasswordViewPage}"
+        FlyoutItemIsVisible="False"
+        Route="ForgotPasswordViewPage" 
+    />
+
+
+    <ShellContent
+        Title ="Liste des Epargnes"
+        ContentTemplate="{DataTemplate views:EpargneViewPage}"
+        FlyoutItemIsVisible="False"
+        Route="EpargneViewPage" 
+    />
+
+    <ShellContent
+        Title ="Ajout d'un nouvel Epargne"
+        ContentTemplate="{DataTemplate views:NewEpargneViewPage}"
+        FlyoutItemIsVisible="False"
+        Route="NewEpargneViewPage" 
+    />
+
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        FlyoutItemIsVisible="False"
+        Route="MainPage" 
+    />
+
 </Shell>
