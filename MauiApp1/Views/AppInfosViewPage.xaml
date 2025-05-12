@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Views.AppInfosViewPage"
+             Title="A Propos">
+    <VerticalStackLayout>
+        <Border Margin="0,50,0,0" BackgroundColor="White" StrokeShape="RoundRectangle 10" Padding="10" HorizontalOptions="Center">
+            <HorizontalStackLayout Spacing="30">
+                <ImageButton CornerRadius="10" Source="dotnet_bot.png" WidthRequest="40" HeightRequest="40" BorderWidth="1" BorderColor="Gray" />
+                <Label Text="AppName" TextColor="#333333" FontSize="Large" FontAttributes="Bold" />
+                <Label Margin="50,0,0,0" Text="version 1.1" TextColor="{DynamicResource Primary}" FontSize="Subtitle" FontAttributes="Bold" />
+            </HorizontalStackLayout>
+        </Border>
+        <ScrollView Orientation="Vertical">
+            <VerticalStackLayout Padding="15" Spacing="15"> 
+                 <Label FontSize="Body" FontAttributes="Bold" Text="Bienvenue sur AppName!" TextColor="Black"/>
+                <Label Text="AppName est une application de Gestion budgétaire personnelle, elle vous permet de connaitre vos planification, vos depense, vos revenus et epargnes pour des objectufs financiers."
+                       TextColor="#333333"
+                       VerticalOptions="Start"
+                       HorizontalTextAlignment="Start"
+                       HorizontalOptions="Fill"
+                       FontSize="16"
+                       LineBreakMode="WordWrap"/>
+            </VerticalStackLayout> 
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

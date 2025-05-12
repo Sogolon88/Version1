@@ -1,11 +1,11 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace MauiApp1.ViewModels
+namespace FinanceApp.ViewModels
 {
-    public partial class BaseVieModel : ObservableObject
+    public partial class BaseViewModel : ObservableObject
     {
         [ObservableProperty]
-        public string _isBasy;
+        public bool _isBusy;
         [ObservableProperty]
         public string _title;
 

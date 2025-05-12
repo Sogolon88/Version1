@@ -1,6 +1,5 @@
 using FinanceApp.Models;
 using FinanceApp.Services;
-using System.Runtime.CompilerServices;
 
 namespace FinanceApp;
 
@@ -88,10 +87,9 @@ public partial class AddPage : ContentPage
         }
         if ( Data.Type == "Revenu" && double.TryParse(TauxEpargne.Text, out double tauxEpargne))
         {
-            Data.Budget -= Data.Budget * (tauxEpargne / 100.0);
             await database.UpdateAllEpargnes(Data.Budget * (tauxEpargne/100.0) );
+            Data.Budget -= Data.Budget * (tauxEpargne / 100.0);
         }
-        else await DisplayAlert("Alert", "Taux incorrect !", "OK");
         await SaveTransaction(Data);
         
     }
@@ -139,6 +137,7 @@ public partial class AddPage : ContentPage
         Navigation.RemovePage(this);
 
         //// GENARATION D'UNE NOTIFICATION INFORMANT L'AJOUT D'UNE TRANSACTION
+        await NotificationService.ShowNotification("Nouvelle Transaction", "ajout d'une nouvelle tranction: " + Data.Type);
     }
 
     private void OnChangedTransactionType(object sndr, CheckedChangedEventArgs e)

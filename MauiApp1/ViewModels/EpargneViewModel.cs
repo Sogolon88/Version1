@@ -1,12 +1,12 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using CommunityToolkit.Mvvm.ComponentModel;
 using FinanceApp.Models;
-using MauiApp1.Views;
-using FinanceApp;
+using FinanceApp.Views;
 using System.Collections.ObjectModel;
 using FinanceApp.Services;
 
-namespace MauiApp1.ViewModels
+
+namespace FinanceApp.ViewModels
 {
     public partial class EpargneViewModel
     {
@@ -18,12 +18,19 @@ namespace MauiApp1.ViewModels
         public double Progression { get; set; } = 0.3;
         public string Pourcentage { get; set; } = "34%";
         public DateTime DateSetter { get; set; } = DateTime.Now;
+        public INavigation? navigation;
 
         private AppDatabase? database;
         public ObservableCollection<EpargneViewModel> AllEpargne { get; set; }
+
         public EpargneViewModel()
         {
             AllEpargne = [];
+        }
+        public EpargneViewModel(INavigation navigation)
+        {
+            AllEpargne = [];
+            this.navigation = navigation;
         }
         public EpargneViewModel(int id, string ti, string desc, double prog, string mtn, string currmtn, string pourcenta)
         {
@@ -61,6 +68,7 @@ namespace MauiApp1.ViewModels
                         CurrentAmount = item.MonatantCourant.ToString() + " MAD";
 
                     AllEpargne.Add(new EpargneViewModel(Id, Titre, Description, Progression, Montant, CurrentAmount, Pourcentage));
+ 
                 }
             }
          
@@ -70,7 +78,9 @@ namespace MauiApp1.ViewModels
         [RelayCommand]
         private async Task ClickAddNewEpargneButton()
         {
-           await Shell.Current.GoToAsync($"//{nameof(NewEpargneViewPage)}");
+            if (navigation != null)
+                await navigation.PushAsync(new NewEpargneViewPage());
+            else return;
         }
     }
 }

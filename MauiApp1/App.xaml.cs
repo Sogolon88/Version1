@@ -13,9 +13,9 @@ namespace FinanceApp
             return new Window(new AppShell());
         }
 
-        protected override void OnStart()
+        protected override void OnResume()
         {
-            base.OnStart();
+            base.OnResume();
             Preferences.Set("RememberMe", false);
         }
     }

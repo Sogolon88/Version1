@@ -1,5 +1,5 @@
-using MauiApp1.ViewModels;
-namespace MauiApp1.Views;
+using FinanceApp.ViewModels;
+namespace FinanceApp.Views;
 
 
 public partial class RegisterViewPage : ContentPage

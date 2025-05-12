@@ -1,13 +1,15 @@
-using MauiApp1.ViewModels;
+using FinanceApp.ViewModels;
 
-namespace MauiApp1.Views;
+namespace FinanceApp.Views;
 
 public partial class NewEpargneViewPage : ContentPage
 {
 	public NewEpargneViewPage()
 	{
 		InitializeComponent();
-        BindingContext = new NewEpargneModel();
+        BindingContext = new NewEpargneModel(this.Navigation);
+
+        Shell.SetTabBarIsVisible(this, true);
 
         DateHandler.Date = DateTime.Now;
         DateHandler.MaximumDate = DateTime.Now.AddYears(5);

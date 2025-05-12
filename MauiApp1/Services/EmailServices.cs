@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Mail;
 
-namespace MauiApp1.Models
+namespace FinanceApp.Models
 {
     public class EmailService
     {

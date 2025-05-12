@@ -1,8 +1,8 @@
 ﻿using FinanceApp.Models;
+using FinanceApp.Models;
 using FinanceApp.Services;
-using MauiApp1.Models;
-using MauiApp1.ViewModels;
-using MauiApp1.Views;
+using FinanceApp.ViewModels;
+using FinanceApp.Views;
 using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 

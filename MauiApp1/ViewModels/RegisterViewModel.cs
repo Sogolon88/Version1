@@ -3,15 +3,15 @@ using CommunityToolkit.Mvvm.Input;
 using FinanceApp;
 using FinanceApp.Models;
 using FinanceApp.Services;
-using MauiApp1.Models;
-using MauiApp1.Views;
+using FinanceApp.Models;
+using FinanceApp.Views;
 using System.Text.RegularExpressions;
 
 
 
-namespace MauiApp1.ViewModels
+namespace FinanceApp.ViewModels
 {
-    public partial class RegisterViewModel : BaseVieModel
+    public partial class RegisterViewModel : BaseViewModel
     {
         private readonly AppDatabase databaseService;
         private readonly EmailService emailService;

@@ -17,7 +17,7 @@
                            FontAttributes="Bold"
                            TextColor="#333333"
                            HorizontalOptions="Start" />
-                    <Image Source="oip.jpg"
+                    <Image Source="applogo.png"
                            HeightRequest="80"
                            Aspect="AspectFit"
                            HorizontalOptions="Center"
@@ -63,7 +63,11 @@
                     <controls:ActiviteModele Title="Revenu" Icon="sell.png" Grid.Row="0" Grid.Column="1" />
                     <controls:ActiviteModele Title="Dépenses" Icon="shopping.png" Grid.Row="1" Grid.Column="0" />
                     <controls:ActiviteModele Title="Dettes" Icon="savings.png" Grid.Row="1" Grid.Column="1" />
-                    <controls:ActiviteModele Title="DashBoard" Icon="dash.jpg" Grid.Row="2" Grid.Column="0" />
+                    <controls:ActiviteModele Title="DashBoard" Icon="dash.jpg" Grid.Row="2" Grid.Column="0" >
+                        <controls:ActiviteModele.GestureRecognizers>
+                            <TapGestureRecognizer  Tapped="GoToDashBorards"/>
+                        </controls:ActiviteModele.GestureRecognizers>
+                    </controls:ActiviteModele>
                     <controls:ActiviteModele Title="Epargnes" Icon="epag.jpg" Grid.Row="2" Grid.Column="1" >
                         <controls:ActiviteModele.GestureRecognizers>
                             <TapGestureRecognizer Tapped="GoToAddEpargne"/>

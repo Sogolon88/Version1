@@ -3,43 +3,50 @@
     x:Class="FinanceApp.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:views="clr-namespace:MauiApp1.Views"
-    xmlns:viewModels="clr-namespace:MauiApp1.ViewModels"
-    xmlns:Models="clr-namespace:MauiApp1.Models"
+    xmlns:views="clr-namespace:FinanceApp.Views"
+    xmlns:viewModels="clr-namespace:FinanceApp.ViewModels"
+    xmlns:Models="clr-namespace:FinanceApp.Models"
     xmlns:local="clr-namespace:FinanceApp"
     Shell.FlyoutBehavior="Flyout"
     Shell.BackgroundColor="#F0F8FF"
     >
 
     <TabBar Route="Maintabs">
+
+        <ShellContent Title="Home"
+              Icon="home.png"
+              ContentTemplate="{DataTemplate local:MainPage}" 
+              />
         <ShellContent Title="profils"
                       Icon="profil_icon.png"
-                      ContentTemplate="{DataTemplate local:MainPage}" 
+                      ContentTemplate="{DataTemplate views:ProfilSetterViewPage}" 
                       />
-        <ShellContent Title="Home"
-                      Icon="home.png"
-                      ContentTemplate="{DataTemplate local:MainPage}" 
-                      />
+       
         <ShellContent Icon="add.png"
                       ContentTemplate="{DataTemplate local:AddPage}" 
                       />
-        <ShellContent Title="notification"
-                      Icon="notifif_icon.png"
-                      ContentTemplate="{DataTemplate local:MainPage}" 
-                      />
-    </TabBar>
-
-    <ShellContent Title="Paramettre"
+        <ShellContent Title="Paramettre"
+                      Shell.NavBarHasShadow="True"
                       Icon="settings.png"
                       ContentTemplate="{DataTemplate views:SettingViewPage}" 
                       />
-
+        <!--ShellContent Title="notification"
+                      Icon="notifif_icon.png"
+                      ContentTemplate="{DataTemplate local:MainPage}" 
+                      /-->
+    </TabBar>
     <ShellContent
-        Title="Login Page"
+        Icon="power.png"
+        Title="Deconnexion"
         ContentTemplate="{DataTemplate views:LoginViewPage}"
-        FlyoutItemIsVisible="False"
         Route="LoginViewPage" 
-    />
+        />
+
+    <ShellContent Title="Paramettre"
+                      FlyoutItemIsVisible="False"
+                      Icon="settings.png"
+                      ContentTemplate="{DataTemplate views:SettingViewPage}" 
+                      />
 
     <ShellContent
         Title="Register Page"
@@ -76,6 +83,14 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         FlyoutItemIsVisible="False"
         Route="MainPage" 
+    />
+    
+    <ShellContent
+        Title="les statistiques"
+        Shell.FlyoutItemIsVisible="False"
+        ContentTemplate="{DataTemplate views:StatistiquesViewPage}"
+        FlyoutItemIsVisible="False"
+        Route="StatistiquesViewPage" 
     />
 
 </Shell>

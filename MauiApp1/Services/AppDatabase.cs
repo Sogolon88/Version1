@@ -6,7 +6,7 @@ namespace FinanceApp.Services
     public class AppDatabase
     {
         private SQLiteAsyncConnection? db;
-        const int CurrentDbVersion = 6;
+        const int CurrentDbVersion = 7;
         private const SQLiteOpenFlags Flags = SQLiteOpenFlags.ReadWrite | SQLiteOpenFlags.Create;
         async Task Init()
         {
@@ -58,11 +58,25 @@ namespace FinanceApp.Services
         {
             await Init();
             var epargnes = await GetAllEpargnes();
-            if( epargnes.Count == 0)
+            if( epargnes.Count == 1)
             {
                 return await db.ExecuteAsync(" UPDATE Epargne SET MonatantCourant = MonatantCourant + ?", somme);
             }
             return await db.ExecuteAsync("UPDATE Epargne SET MonatantCourant = MonatantCourant + ((Pourcentage * 1.0) / 100.0) * ?", somme);
+
+            double Excedants = 0;
+            foreach(var item in epargnes)
+            {
+                if(item.MonatantCourant > item.MontantFinal)
+                {
+                    Excedants += (item.MonatantCourant - item.MontantFinal);
+                    await db.ExecuteAsync("UPDATE Epargne SET MonotantCourant = MontantFinal");
+                }
+            }
+
+            //// Mise à des stats du compte de l'utilisateur. 
+            //// await db.ExecuteAsync("UPDATE Epargne SET "); 
+            Preferences.Set("solde", (float)Excedants);
         }
 
         ////// Add a transaction to the database
@@ -144,6 +158,12 @@ namespace FinanceApp.Services
         {
             await Init();
             await db.DeleteAsync(user);
+        }
+
+        public async Task<int> UpdateUser(Users user)
+        {
+            await Init();
+            return await db.UpdateAsync(user);
         }
 
         //methode pour recuperer un utilisateur par son email

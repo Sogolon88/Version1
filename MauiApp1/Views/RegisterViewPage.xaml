@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:views="clr-namespace:MauiApp1.Views"
-             xmlns:viewModels="clr-namespace:MauiApp1.ViewModels"
-             x:Class="MauiApp1.Views.RegisterViewPage"
+             xmlns:views="clr-namespace:FinanceApp.Views"
+             xmlns:viewModels="clr-namespace:FinanceApp.ViewModels"
+             x:Class="FinanceApp.Views.RegisterViewPage"
              Shell.NavBarIsVisible="False"
              Title="Inscription">
 
@@ -87,8 +87,7 @@
                     Padding="8">
                 <Entry Placeholder="Votre numéro de téléphone"
                        Keyboard="Telephone"
-                       TextColor="#333333"
-                       Text="{Binding Telephone}"
+                       Text="{Binding PhoneNumber}"
                        FontSize="16" />
             </Border>
 

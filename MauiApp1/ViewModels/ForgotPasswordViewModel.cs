@@ -1,13 +1,14 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using FinanceApp;
+//using FinanceApp.Services;
+using FinanceApp.Models;
 using FinanceApp.Services;
-using MauiApp1.Models;
-using MauiApp1.Views;
+using FinanceApp.Views;
 
-namespace MauiApp1.ViewModels
+namespace FinanceApp.ViewModels
 {
-    public partial class ForgotPasswordViewModel : BaseVieModel
+    public partial class ForgotPasswordViewModel : BaseViewModel
     {
         private readonly AppDatabase _databaseService;
         private readonly EmailService _emailService;

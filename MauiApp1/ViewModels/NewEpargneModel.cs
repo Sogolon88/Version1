@@ -1,11 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
 using FinanceApp.Models;
-using MauiApp1.Views;
-using FinanceApp;
+using FinanceApp.Views;
 using FinanceApp.Services;
 
-namespace MauiApp1.ViewModels
+namespace FinanceApp.ViewModels
 {
     public partial class NewEpargneModel
     {
@@ -14,14 +12,15 @@ namespace MauiApp1.ViewModels
         public string AmountText { get; set; } = string.Empty;
         public string Taux { get; set; } = string.Empty;
         public DateTime DateSetter { get; set; }
+        private INavigation navigation;
         private AppDatabase? Database;
-        public NewEpargneModel()
+        public NewEpargneModel(INavigation navigation)
         {
             Database = new AppDatabase();
+            this.navigation = navigation;
         }
-        public NewEpargneModel(string titre, string description, double montant, double pourcentage, DateTime dateAjout)
+        public NewEpargneModel()
         {
-
         }
 
         [RelayCommand]
@@ -58,28 +57,29 @@ namespace MauiApp1.ViewModels
                 double totalTaux = 0;
                 foreach(var item in epargnes)
                 {
-                    
-                    totalTaux += item.Pourcentage;
+                    if(item.MonatantCourant < item.MontantFinal)
+                        totalTaux += item.Pourcentage;
                 }
 
                 if ((totalTaux + epargne.Pourcentage) > 100.0)
                 {
                     epargne.Pourcentage = 100.0 - totalTaux;
                 }
-                else if( (totalTaux + epargne.Pourcentage) < 100.0)
-                {
-                    epargne.Pourcentage += 100.0 - (totalTaux + epargne.Pourcentage);
-                }
-                else await Shell.Current.DisplayAlert("Alert", "Taux tres grand !", "Ok");
-
+ 
                 if (await Database.AddEpargne(epargne) > 0)
                 {
                     await Shell.Current.DisplayAlert("Alert", "Epargne ajoutée avec succès !", "Ok");
-                    await Shell.Current.GoToAsync($"//{nameof(EpargneViewPage)}");
+                    await navigation.PushAsync(new EpargneViewPage());  //Shell.Current.GoToAsync($"//{nameof(EpargneViewPage)}");
+                    await NotificationService.ShowNotification("Nouvel Epargne", epargne.Titre + ": " + epargne.Description);
+                    
+                    DescText = string.Empty;
+                    TitreText = string.Empty;
+                    AmountText = string.Empty;
+                   
                 }
                 else await Shell.Current.DisplayAlert("Alert", "Echec, reseillez plus tard !!!", "OK");
             }
+                
         }
     }
-
 }

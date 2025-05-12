@@ -1,5 +1,5 @@
 ﻿using FinanceApp.Services;
-using MauiApp1.Views;
+using FinanceApp.Views;
 
 namespace FinanceApp
 {
@@ -22,6 +22,10 @@ namespace FinanceApp
         private async void GoToTransactionPage(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new Transaction());
+        }
+        private async void GoToDashBorards(object sebder, EventArgs e)
+        {
+            await Navigation.PushAsync(new DashBoardViewPage());
         }
         private async void GoToAddEpargne(object sender, EventArgs e)
         {

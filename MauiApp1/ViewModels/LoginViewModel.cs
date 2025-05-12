@@ -2,11 +2,11 @@
 using CommunityToolkit.Mvvm.Input;
 using FinanceApp;
 using FinanceApp.Services;
-using MauiApp1.Views;
+using FinanceApp.Views;
 
-namespace MauiApp1.ViewModels
+namespace FinanceApp.ViewModels
 {
-    public partial class LoginViewModel : BaseVieModel
+    public partial class LoginViewModel : BaseViewModel
     {
         private AppDatabase _databaseService;
 
@@ -17,7 +17,7 @@ namespace MauiApp1.ViewModels
             Password = string.Empty;
             Message = string.Empty;
             RememberMe = Preferences.Get("RememberMe", false);
-            IsBusy = false; // Initialize IsBusy to false
+            IsBusy = false;
 
 
             if (RememberMe)
@@ -91,6 +91,7 @@ namespace MauiApp1.ViewModels
                     Preferences.Set("Password", Password);
                     Preferences.Set("RememberMe", RememberMe);
                     Preferences.Set("CurrentUser", user.Name);
+                    Preferences.Set("UserPhoneNumber", user.PhoneNumber);
 
                     var mainPage = Application.Current?.Windows.FirstOrDefault()?.Page;
                     if (mainPage != null)

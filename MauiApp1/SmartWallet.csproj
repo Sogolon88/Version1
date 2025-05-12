@@ -62,16 +62,20 @@
 	<ItemGroup>
 	  <Compile Remove="AddEpargne.xaml.cs" />
 	  <Compile Remove="AllEpargne.xaml.cs" />
+	  <Compile Remove="ModelApp\StatsViewModel.cs" />
 	  <Compile Remove="Models\EpargneDataView.cs" />
 	  <Compile Remove="Models\Monkey.xaml.cs" />
 	  <Compile Remove="Models\NewContent1.xaml.cs" />
 	  <Compile Remove="OtherPage.xaml.cs" />
+	  <Compile Remove="PhoneWordsTranslator.cs" />
 	  <Compile Remove="TransactionData.cs" />
 	  <Compile Remove="TransactionViewModele.cs" />
+	  <Compile Remove="Views\NewPage1.xaml.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <MauiImage Remove="Resources\Images\addicon.png" />
+	  <MauiImage Remove="Resources\Images\dark_mode.png" />
 	  <MauiImage Remove="Resources\Images\family_icon.png" />
 	  <MauiImage Remove="Resources\Images\iconadd.png" />
 	  <MauiImage Remove="Resources\Images\icon_add.png" />
@@ -83,10 +87,12 @@
 	  <MauiXaml Remove="Models\Monkey.xaml" />
 	  <MauiXaml Remove="Models\NewContent1.xaml" />
 	  <MauiXaml Remove="OtherPage.xaml" />
+	  <MauiXaml Remove="Views\NewPage1.xaml" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\addicon.png" />
+	  <None Remove="Resources\Images\dark_mode.png" />
 	  <None Remove="Resources\Images\family_icon.png" />
 	  <None Remove="Resources\Images\iconadd.png" />
 	  <None Remove="Resources\Images\icon_add.png" />
@@ -99,8 +105,10 @@
 	<ItemGroup>
 		<PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="Microcharts.Maui" Version="1.0.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.3" />
+		<PackageReference Include="PieChart" Version="1.0.1" />
 		<PackageReference Include="Plugin.LocalNotification" Version="11.1.4" />
 		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="3.116.1" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
@@ -111,13 +119,10 @@
 	  <Compile Update="Views\RegisterViewPage.xaml.cs">
 	    <DependentUpon>RegisterViewPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\SettingViewPage.xaml.cs">
-	    <DependentUpon>SettingViewPage.xaml</DependentUpon>
-	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="AddPage.xaml">
+	  <MauiXaml Update="Views\AddPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Models\ActionModele.xaml">
@@ -129,10 +134,19 @@
 	  <MauiXaml Update="Models\EpargneModel.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\SettingViewPage.xaml">
+	  <MauiXaml Update="Views\AppInfosViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Transaction.xaml">
+	  <MauiXaml Update="Views\DashBoardViewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ProfilSetterViewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\StatistiquesViewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Transaction.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\EpargneViewPage.xaml">
@@ -148,6 +162,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RegisterViewPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\SettingViewPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

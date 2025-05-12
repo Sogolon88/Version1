@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.ModelApp.ActionModele">
+ 
+    <Border StrokeShape="RoundRectangle 2" Background="#FFFFFF" Stroke="#333333">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" StrokeShape="RoundRectangle 100" StrokeThickness="1" Margin="5" x:Name="ImageBorder">
+                <Image x:Name="ImgIcon" WidthRequest="55" HeightRequest="20" Aspect="Fill"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   />
+            </Border>
+            <StackLayout Grid.Column="1" Orientation="Vertical" Margin="10,0,0,0">
+                <Label x:Name="TitleLabel" FontSize="20" TextColor="#333333" FontAttributes="Bold"/>
+                <Label x:Name="DescriptionLabel" FontSize="15" TextColor="DarkGrey"/>
+            </StackLayout>
+            <Label x:Name="SommeLabel" Grid.Column="2" FontSize="18" TextColor="Grey" Margin="20"/>
+        </Grid>
+    </Border>
+</ContentView>
